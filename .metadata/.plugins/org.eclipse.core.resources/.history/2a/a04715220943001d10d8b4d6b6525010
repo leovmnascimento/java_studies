@@ -1,0 +1,92 @@
+package swing;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
+import javax.swing.SwingConstants;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+
+public class OlaMundoSwing extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private final Action action = new SwingAction_1();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					OlaMundoSwing frame = new OlaMundoSwing();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public OlaMundoSwing() {
+		
+		JLabel lblMensagem = new JLabel("New label");
+		lblMensagem.setHorizontalAlignment(SwingConstants.CENTER);
+		getContentPane().add(lblMensagem, BorderLayout.CENTER);
+		
+		JButton btnButton = new JButton("Clique aqui");
+		btnButton.setAction(action);
+		getContentPane().add(btnButton, BorderLayout.NORTH);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 485, 290);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPane);
+		
+		JButton btnHelloWorld = new JButton("Clique aqui");
+		btnHelloWorld.setAction(action);
+		btnHelloWorld.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblMensagem.setText("Hello World!");
+			}
+		});
+		contentPane.add(btnHelloWorld, BorderLayout.NORTH);
+		
+		JLabel lblHelloWorld = new JLabel("");
+		lblHelloWorld.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblHelloWorld, BorderLayout.CENTER);
+	}
+
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+	private class SwingAction_1 extends AbstractAction {
+		public SwingAction_1() {
+			putValue(NAME, "SwingAction_1");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+}

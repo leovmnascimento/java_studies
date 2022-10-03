@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\Leonardo\Desktop\.drive\Cursos e imersões\Tecnologia\Java\java_studies\.metadata\.plugins\org.eclipse.jdt.core
+2373786342.index
+1865797976.index
+2382695841.index
